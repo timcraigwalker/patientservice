@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./src:/src
+    container_name: web
+    expose:
+      - 9001
+    ports:
+      - 9001:9001
+    command: npm start
+    depends_on:
+      - "db"
+  db:
+    container_name: mongo
+    image: mongo:latest
+    restart: always
+    volumes:
+      - ./patientServiceData:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE= PatientService
+    ports:
+      - 27017:27017
+
+networks:
+  default:
+    name: localhost
