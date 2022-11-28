@@ -5,8 +5,8 @@
 This is a TypeScript service connected to a local MongoDB, containing a RESTful API that provides;
 
 - Patient(s) data using NHS number or surname
-  - GET /Patient?name.family={:surname}
-  - GET /Patient?identifier.system=https://fhir.nhs.uk/Id/nhs-number&identifier.value={:nhs-number}
+  - GET /Patient?name.family={surname}
+  - GET /Patient?identifier.system=https://fhir.nhs.uk/Id/nhs-number&identifier.value={nhs-number}
   
 - All observations for a patient ID
   - GET /Patient/{:id}/Observation
